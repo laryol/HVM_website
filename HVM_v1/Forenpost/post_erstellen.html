@@ -58,6 +58,9 @@
     button.onclick = function (){
         const key = thema.value;
         const values = inhalt.value;
+        if (localStorage.length>0){
+            localStorage.removeItem(localStorage.key(0))
+        }
         localStorage.setItem(key,values);
     }
 </script>

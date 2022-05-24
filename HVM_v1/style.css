@@ -30,3 +30,7 @@ a{
     float:right;
     margin: 20px;
 }
+.eingabefeld{
+    width: 100px;
+    height: 100px;
+}

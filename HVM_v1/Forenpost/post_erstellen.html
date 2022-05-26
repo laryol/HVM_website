@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Forumpost</title>
-     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 <div class="main-container">
@@ -11,21 +11,21 @@
     <br>
 
     <div class="forIndex">
-            Bitte füllen sie die vorgegebenen Felder aus und drücken danach auf absenden!
-    <br>
+        Bitte füllen sie die vorgegebenen Felder aus und drücken danach auf absenden!
         <br>
-    <form>
-    <label for="topic">Thema:
         <br>
-    <input id="topic" required></label>
-    <br>
-        <br>
-    <label for="Text">Text:
-        <br>
-    <input id="text" type="text" required></label>
-    <br>
-    <button type="submit" id="submit">absenden</button>
-</form>
+        <form>
+            <label for="topic">Thema:
+                <br>
+                <input id="topic" required></label>
+            <br>
+            <br>
+            <label for="Text">Text:
+                <br>
+                <input id="text" type="text" required></label>
+            <br>
+            <button type="submit" id="submit">absenden</button>
+        </form>
         <!--    <form>
     <label for="topic">Thema:</label>
         <br>
@@ -47,21 +47,25 @@
         <br>
         <br>
         <br>
-    Zurück zur <a href="../index.html">Startseite</a> oder zum <a href="../Forum.html">Forum</a>
-</div>
+        Zurück zur <a href="../index.html">Startseite</a> oder zum <a href="../Forum.html">Forum</a>
+    </div>
 </div>
 <script type="text/javascript">
     const thema = document.getElementById('topic');
     const inhalt = document.getElementById('text');
     const button = document.getElementById('submit');
 
-    button.onclick = function (){
+    button.onclick = function () {
         const key = thema.value;
         const values = inhalt.value;
-        if (localStorage.length>0){
+        if (localStorage.length > 0) {
             localStorage.removeItem(localStorage.key(0))
         }
-        localStorage.setItem(key,values);
+        localStorage.setItem(key, values);
+        // Timeout notwendig, da sonst Weiterleitung (zumindest bei manchen Browsern) fehlerhaft
+        setTimeout(function () {
+            window.location = '../Forum.html'
+        }), 500;
     }
 </script>
 
